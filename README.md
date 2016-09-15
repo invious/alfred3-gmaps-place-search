@@ -3,7 +3,7 @@ A simple workflow to convert clipboard text to an address returned by Google Map
 
 ### Installation
 
-grab the latest `.alfredworkflow` file here
+grab the [latest `.alfredworkflow` file here](https://github.com/invious/alfred3-gmaps-place-search/releases/)
 
 ##### Planned Features
 
@@ -15,4 +15,4 @@ Workflow script filter to return results to queries like
 
 I made this for my girlfriend, who I am introducing to programming, and thought why not share it. It shows me writing the script, obtaining an API key for Google Places, and using postman to submit and view results of HTTP GET requests, generating the python code, and creating the Alfred workflow.
 
-<video src="https://youtu.be/-v3M6gI4hkA" poster="http://i.imgur.com/q6w1sK8.jpg" width="320" height="200" controls preload></video>
+[![](http://i.imgur.com/q6w1sK8.jpg)](https://youtu.be/-v3M6gI4hkA)
