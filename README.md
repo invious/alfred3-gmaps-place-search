@@ -1,7 +1,7 @@
 # alfred3-gmaps-place-search
 A simple workflow to convert clipboard text to an address returned by Google Maps Search
 
-![](http://g.recordit.co/cQwzW1Sobu.gif)
+![](http://g.recordit.co/oeA7z6Vr2J.gif)
 
 ### Installation
 
