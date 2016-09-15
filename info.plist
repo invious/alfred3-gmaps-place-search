@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.invious.gmaps.placesearch</string>
+	<key>connections</key>
+	<dict>
+		<key>03DCD9A0-786E-460C-A734-DEB7F0C88D96</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>74355592-AF60-4FCA-AC56-EBF4476AD5DA</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>74355592-AF60-4FCA-AC56-EBF4476AD5DA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B51D4FB5-F97E-40E6-A135-6046DED947CD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>CF6B026C-8865-48DB-BFEF-75F77568B379</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Aymon Fournier</string>
+	<key>description</key>
+	<string>simple workflow to take selected or clipboard text and return an address</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Google Maps Place Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>Your address result has been copied to your clipboard.</string>
+				<key>title</key>
+				<string>Google Maps Places API Search</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>B51D4FB5-F97E-40E6-A135-6046DED947CD</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>gmapsearch</string>
+				<key>subtext</key>
+				<string>Ener  query liek you would on GMaps</string>
+				<key>text</key>
+				<string>Search places API, get address</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>03DCD9A0-786E-460C-A734-DEB7F0C88D96</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>import requests
+
+url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
+
+querystring = {"query": "{query}",
+               "key": "AIzaSyC0r4UxnX_COKvG10vK_NBjon-4CNKJeCI"}
+
+headers = {
+    'cache-control': "no-cache",
+}
+
+response = requests.request("GET", url, headers=headers, params=querystring)
+
+print response.json()['results'][0]['formatted_address']</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>74355592-AF60-4FCA-AC56-EBF4476AD5DA</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>CF6B026C-8865-48DB-BFEF-75F77568B379</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>03DCD9A0-786E-460C-A734-DEB7F0C88D96</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>74355592-AF60-4FCA-AC56-EBF4476AD5DA</key>
+		<dict>
+			<key>xpos</key>
+			<integer>250</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>B51D4FB5-F97E-40E6-A135-6046DED947CD</key>
+		<dict>
+			<key>xpos</key>
+			<integer>570</integer>
+			<key>ypos</key>
+			<integer>20</integer>
+		</dict>
+		<key>CF6B026C-8865-48DB-BFEF-75F77568B379</key>
+		<dict>
+			<key>xpos</key>
+			<integer>560</integer>
+			<key>ypos</key>
+			<integer>150</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>invio.us</string>
+</dict>
+</plist>
